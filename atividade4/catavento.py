@@ -15,17 +15,18 @@ def catavento():
 
     glColor3f(1.0, 1.0, 1.0)
     glBegin(GL_POLYGON)
-    glVertex2f(-0.03, 0)
-    glVertex2f(0.03, 0)
-    glVertex2f(0.03, 3)
-    glVertex2f(-0.03, 3)
+    glVertex2f(-0.03, 1)
+    glVertex2f(0.03, 1)
+    glVertex2f(0.03, -2)
+    glVertex2f(-0.03, -2)
     glEnd()
 
-    glTranslatef(0, 3, 0)
+    glTranslatef(0, 1, 0)
 
     glRotatef(pos, 0, 0, 1)
 
     colors = [(1, 0.5, 0), (1, 1, 0), (0, 0.8, 1), (1, 0, 0.5)]
+    colors_shadow = [(0.8, 0.4, 0), (0.8, 0.8, 0), (0, 0.6, 0.8), (0.8, 0, 0.4)]
     for _ in range(4):
         glColor3f(*colors[_])
         glBegin(GL_POLYGON)
@@ -33,6 +34,13 @@ def catavento():
         glVertex2f(0.5, 0.5)
         glVertex2f(0.0, 1.5)
         glVertex2f(0.0, 0.0)
+        glEnd()
+        glColor3f(*colors_shadow[_])
+        glBegin(GL_POLYGON)
+        glVertex2f(0.0, 1.5)
+        glVertex2f(0.0, 0.0)
+        glVertex2f(0.5, 0.5)
+        
         glEnd()
         glRotatef(90, 0, 0, 1)
 
